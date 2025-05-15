@@ -11,6 +11,9 @@ services:
       - DEBUG=1
       - LAMBDA_EXECUTOR=docker
       - DOCKER_HOST=unix:///var/run/docker.sock
+      - AWS_REGION=us-east-1
+      - ENABLE_UI=1
+      - LOCALSTACK_API_KEY=ls-MuQA3421-cApU-HUCU-POcE-5610dIxo4bbe  # Add your API key if you have one
     volumes:
       - "./lambda:/var/task"   # Mount lambda code
       - "/var/run/docker.sock:/var/run/docker.sock"

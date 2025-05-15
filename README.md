@@ -1,5 +1,7 @@
 ## Start Localstack
 ```
+alias awslocal=' aws --endpoint-url=http://localhost:4566 '
+
 docker-compose up -d
 ```
 ## Upload Lambda code
@@ -38,9 +40,26 @@ awslocal logs describe-log-groups
 awslocal logs get-log-events --log-group-name /aws/lambda/my-function --log-stream-name <log-stream-name>
 ```
 
+## LocalStack UI Access
+```
+# LocalStack Web UI is available at:
+http://localhost:4571
+```
+
+## Restart LocalStack
+```
+# Stop the current container
+docker-compose down
+
+# Start it again
+docker-compose up -d
+
+# Check logs (optional)
+docker-compose logs -f localstack
+```
+
 ## Cleanup
 ```
 awslocal cloudformation delete-stack --stack-name localstack-stack
 
 docker-compose down
-```
